@@ -5,7 +5,9 @@ licenseType: Pro
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - explosionPrefab: {fileID: 1773368267273114, guid: 0a3d229717f1871489cf2aff4c0525e0,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
