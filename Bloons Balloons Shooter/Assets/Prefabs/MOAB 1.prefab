@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114590662216472914}
   - component: {fileID: 114978419261417248}
   - component: {fileID: 114856561059133584}
-  - component: {fileID: 60821982183689174}
+  - component: {fileID: 60617333684694322}
   m_Layer: 0
   m_Name: MOAB 1
   m_TagString: Zombie
@@ -39,13 +39,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1743813979569004}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -17.313452, y: 17.377642, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!50 &50951947886300562
 Rigidbody2D:
   serializedVersion: 4
@@ -53,7 +53,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1743813979569004}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -66,7 +66,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &60821982183689174
+--- !u!60 &60617333684694322
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

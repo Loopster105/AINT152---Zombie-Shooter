@@ -9,11 +9,11 @@ public class PlayerBehaviour : MonoBehaviour {
     public delegate void UpdateHealth(int newHealth);
     public static event UpdateHealth OnUpdateHealth;
     public int health = 100;
-    private Animator gunAnim;
+    //private Animator gunAnim;
 
     void Start()
     {
-        gunAnim = GetComponent<Animator>();
+        //gunAnim = GetComponent<Animator>();
         SendHealthData();
         gameOverPanel.SetActive(false);
         
@@ -23,7 +23,7 @@ public class PlayerBehaviour : MonoBehaviour {
     {
         if (Input.GetMouseButtonDown(0))
         {
-            GetComponent<AudioSource>().Play();
+            FindObjectOfType<AudioManager>().Play("PlayerFire");
             //GetComponent<Animator>().SetBool("isFiring", true);
         }
         if (Input.GetMouseButtonUp(0))
@@ -39,14 +39,15 @@ public class PlayerBehaviour : MonoBehaviour {
         if (health <= 0)
         {
             Die();
+            Time.timeScale = 0f;
         }
     }
 
-    void Die()
+    public void Die()
     {
+        FindObjectOfType<AudioManager>().Play("PlayerDeath");
         gameOverPanel.SetActive(true);
 
-        GetComponent<AudioSource>().Stop();
     }
 
     void SendHealthData()

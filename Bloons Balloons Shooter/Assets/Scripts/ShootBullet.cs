@@ -24,9 +24,9 @@ public class ShootBullet : MonoBehaviour {
             bullet.SetActive(true);
         }
 
-        if (GetComponent<AudioSource>() != null)
+        if (FindObjectOfType<AudioManager>() != null)
         {
-            GetComponent<AudioSource>().Play();
+            FindObjectOfType<AudioManager>().Play("PlayerFire");
         }
         Invoke("SetFiring", fireTime);
     }

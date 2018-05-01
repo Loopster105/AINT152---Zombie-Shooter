@@ -24,11 +24,11 @@ public class ShootBullet2 : MonoBehaviour {
             bulletD.SetActive(true);
         }
 
-        if (GetComponent<AudioSource>() != null)
+        if (FindObjectOfType<AudioManager>() != null)
         {
-            
-            GetComponent<AudioSource>().Play();
-            
+
+            FindObjectOfType<AudioManager>().Play("PlayerFire");
+
         }
         Invoke("SetFiring", fireTime);
     }
