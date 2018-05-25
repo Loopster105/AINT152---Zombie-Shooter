@@ -1,50 +1,111 @@
-﻿using UnityEngine.Audio;
-using System;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour {
+[System.Serializable]
+public class Sound
+{
 
-    public Sound[] sounds;
+	public string name;
+	public AudioClip clip;
 
-    public static AudioManager instance;
+	[Range(0f, 1f)]
+	public float volume = 0.7f;
+	[Range(0.1f, 1.5f)]
+	public float pitch = 1f;
 
-	// Use this for initialization
-	void Awake () {
+	[Range(0f, 0.5f)]
+	public float randomVolume = 0.1f;
+	[Range(0f, 0.5f)]
+	public float randomPitch = 0.1f;
 
-        if (instance == null)
-            instance = this;
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
+	public bool loop = false;
 
-		foreach (Sound s in sounds)
-        {
-            s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.clip;
+	private AudioSource source;
 
-            s.source.volume = s.volume;
-            s.source.pitch = s.pitch;
-            s.source.loop = s.loop;
-        }
+	public void SetSource(AudioSource _source)
+	{
+		source = _source;
+		source.clip = clip;
+		source.loop = loop;
 	}
 
-    void Start ()
-    {
-        Play("Theme");
-    }
-	
-	public void Play (string name)
-    {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        if ( s == null)
-        {
-            Debug.LogWarning("Sound: " + name + "not found!");
-            return;
-        }
+	public void Play()
+	{
+		source.volume = volume * (1 + Random.Range(-randomVolume / 2f, randomVolume / 2f));
+		source.pitch = pitch * (1 + Random.Range(-randomPitch / 2f, randomPitch / 2f));
+		source.Play();
+	}
 
-        s.source.Play();
-    }
+	public void Stop()
+	{
+		source.Stop();
+	}
+
+}
+
+public class AudioManager : MonoBehaviour
+{
+
+	public static AudioManager instance;
+
+	[SerializeField]
+	Sound[] sounds;
+
+	void Awake()
+	{
+		if (instance != null)
+		{
+			if (instance != this)
+			{
+				Destroy(this.gameObject);
+			}
+		}
+		else
+		{
+			instance = this;
+			//DontDestroyOnLoad(this);
+		}
+	}
+
+	void Start()
+	{
+		for (int i = 0; i < sounds.Length; i++)
+		{
+			GameObject _go = new GameObject("Sound_" + i + "_" + sounds[i].name);
+			_go.transform.SetParent(this.transform);
+			sounds[i].SetSource(_go.AddComponent<AudioSource>());
+		}
+
+		PlaySound("Music");
+	}
+
+	public void PlaySound(string _name)
+	{
+		for (int i = 0; i < sounds.Length; i++)
+		{
+			if (sounds[i].name == _name)
+			{
+				sounds[i].Play();
+				return;
+			}
+		}
+
+		// no sound with _name
+		Debug.LogWarning("AudioManager: Sound not found in list, " + _name);
+	}
+
+	public void StopSound(string _name)
+	{
+		for (int i = 0; i < sounds.Length; i++)
+		{
+			if (sounds[i].name == _name)
+			{
+				sounds[i].Stop();
+				return;
+			}
+		}
+
+		// no sound with _name
+		Debug.LogWarning("AudioManager: Sound not found in list, " + _name);
+	}
 
 }

@@ -26,7 +26,7 @@ public class ShootBullet : MonoBehaviour {
 
         if (FindObjectOfType<AudioManager>() != null)
         {
-            FindObjectOfType<AudioManager>().Play("PlayerFire");
+            FindObjectOfType<AudioManager>().PlaySound("PlayerFire");
         }
         Invoke("SetFiring", fireTime);
     }

@@ -16,24 +16,23 @@ public class ShootBullet2 : MonoBehaviour {
     {
         isFiring = true;
 
-        GameObject bulletD = PoolManager.current.GetPooledObject("BulletD");
-        if (bulletD != null)
+        GameObject bullet = PoolManager.current.GetPooledObject("Bullet 1");
+        if (bullet != null)
         {
-            bulletD.transform.position = bulletSpawn.position;
-            bulletD.transform.rotation = bulletSpawn.rotation;
-            bulletD.SetActive(true);
+            bullet.transform.position = bulletSpawn.position;
+            bullet.transform.rotation = bulletSpawn.rotation;
+            bullet.SetActive(true);
         }
 
         if (FindObjectOfType<AudioManager>() != null)
         {
-
-            FindObjectOfType<AudioManager>().Play("PlayerFire");
-
+            FindObjectOfType<AudioManager>().PlaySound("");
         }
+
         Invoke("SetFiring", fireTime);
     }
 
-    void Update()
+        void Update()
     {
         if (Input.GetMouseButton(0))
         {

@@ -14,8 +14,8 @@ public class BloonBehaviour : MonoBehaviour {
         if (GameObject.FindWithTag("Player"))
         {
             player = GameObject.FindWithTag("Player").transform;
-            GetComponent<MoveTowardsObject>().target = player;
-            GetComponent<SmoothLookAtTarget2D>().target = player;
+            //GetComponent<MoveTowardsObject>().target = player;
+            //GetComponent<SmoothLookAtTarget2D>().target = player;
         }
     }
     void OnCollisionEnter2D(Collision2D other)
@@ -40,7 +40,7 @@ public class BloonBehaviour : MonoBehaviour {
     }
     void FixedUpdate()
     {
-        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        GetComponent<Rigidbody2D>().angularVelocity = 0.0f;
+        //GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        //GetComponent<Rigidbody2D>().angularVelocity = 0.0f;
     }
 }

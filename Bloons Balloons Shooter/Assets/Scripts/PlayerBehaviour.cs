@@ -23,7 +23,7 @@ public class PlayerBehaviour : MonoBehaviour {
     {
         if (Input.GetMouseButtonDown(0))
         {
-            FindObjectOfType<AudioManager>().Play("PlayerFire");
+            FindObjectOfType<AudioManager>().PlaySound("");
             //GetComponent<Animator>().SetBool("isFiring", true);
         }
         if (Input.GetMouseButtonUp(0))
@@ -45,7 +45,7 @@ public class PlayerBehaviour : MonoBehaviour {
 
     public void Die()
     {
-        FindObjectOfType<AudioManager>().Play("PlayerDeath");
+        FindObjectOfType<AudioManager>().PlaySound("PlayerDeath");
         gameOverPanel.SetActive(true);
 
     }
