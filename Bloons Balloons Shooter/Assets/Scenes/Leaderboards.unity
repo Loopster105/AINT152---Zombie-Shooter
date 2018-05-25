@@ -519,6 +519,11 @@ Prefab:
       propertyPath: sounds.Array.data[0].clip
       value: 
       objectReference: {fileID: 8300000, guid: 9bc407265463b7544b63306c33363f01, type: 3}
+    - target: {fileID: 114557964023750700, guid: 26ca32d02bd52e745b6f66da2990d271,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114488534075202260, guid: 26ca32d02bd52e745b6f66da2990d271, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 26ca32d02bd52e745b6f66da2990d271, type: 2}
@@ -1635,7 +1640,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 4.3683834
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1658,7 +1663,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2042903632}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: -1.08, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

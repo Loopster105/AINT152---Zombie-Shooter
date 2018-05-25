@@ -2346,15 +2346,15 @@ MonoBehaviour:
     rate: 1
   - name: Round 3
     enemy: {fileID: 912757006}
-    count: 5
+    count: 6
     rate: 1
   - name: Round 4
     enemy: {fileID: 541656313}
-    count: 3
+    count: 8
     rate: 1
   - name: Final Round
     enemy: {fileID: 1652053165}
-    count: 2
+    count: 7
     rate: 1
   spawnPoints:
   - {fileID: 1812424734}
